@@ -1,0 +1,19 @@
+{
+  "name": "dome-music",
+  "version": "1.0.0",
+  "description": "music generation application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josefK128/dome-music.git"
+  },
+  "author": "rudolph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josefK128/dome-music/issues"
+  },
+  "homepage": "https://github.com/josefK128/dome-music#readme"
+}
