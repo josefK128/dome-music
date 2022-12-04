@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "music generation application",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/josefK128/dome-music/issues"
   },
-  "homepage": "https://github.com/josefK128/dome-music#readme"
+  "homepage": "https://github.com/josefK128/dome-music#readme",
+  "dependencies": {
+    "mongoose": "^6.3.6"
+  }
 }

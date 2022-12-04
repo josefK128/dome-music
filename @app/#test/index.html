@@ -1,0 +1,32 @@
+<html>
+<body>
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <input class="inputInsert" type="file" accept="*" name="filename" id="fileUpload"/>
+        <button class="insertButton">UPLOAD</button>
+    </form>
+    <script>
+        $('#fileUpload').change(function (e) {
+            console.log($(this).val()) // This will print out the file path
+            console.log(e.target.files[0])
+            /*
+            The above line will print some more details about the file
+            [object File]{
+              arrayBuffer: function arrayBuffer() { [native code] },
+              lastModified: 1589551849373,
+              lastModifiedDate: [object Date] {
+              $constructor: function Date() { [native code] },
+                  $family: function(){return i}
+                },
+              name: "LoremIpsum.xlsx",
+              size: 1205,
+              slice: function slice() { [native code] },
+              stream: function stream() { [native code] },
+              text: function text() { [native code] },
+              type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+              webkitRelativePath: ""
+            }
+            */
+        })
+    </script>
+</body>
+</html>
