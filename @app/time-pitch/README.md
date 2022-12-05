@@ -3,6 +3,8 @@
 ### Usage
 copy desired source wav-file to time-pitch directory as 'track.wav' (replace). 
 
+run server: ```dome-music> npm run live-server```
+
 Launch application url - localhost:8081/@app/time-pitch/index.html. 
 
 click ```START``` (processing will be performed on track.wav) 

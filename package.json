@@ -5,8 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node ."
-  },
+    "live-server": "live-server --port=8081",
+    "playwav": "node ./@app/audio/playwav",
+    "createtree": "node ./@app/utils/createtree",
+    "list": "npm list --depth=0",
+    "listg": "npm -g list --depth=0"
+  }
   "repository": {
     "type": "git",
     "url": "git+https://github.com/josefK128/dome-music.git"
