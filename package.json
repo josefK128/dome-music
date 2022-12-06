@@ -5,12 +5,17 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "live-server": "live-server --port=8081",
-    "playwav": "node ./@app/audio/playwav",
+    "live-server": "live-server --port=8081 --no-browser",
     "createtree": "node ./@app/utils/createtree",
+    "aut2nlines" : "node ./@app/melody/aut2nlines",
+    "aut2seq" : "node ./@app/melody/aut2seq",
+    "seq2str" : "node ./@app/melody/seq2str",
+    "str2abc" : "node ./@app/melody/str2abc",
+    "playwav": "node ./@app/audio/playwav",
+    "time-pitch": "node ./@app/time-pitch/time-pitch",
     "list": "npm list --depth=0",
     "listg": "npm -g list --depth=0"
-  }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/josefK128/dome-music.git"
