@@ -20,7 +20,24 @@ const midi = stem + '/midi';
 const score = stem + '/score';
 const source = stem + '/source';
 const track = stem + '/track';
-const paths = [root, stem, axiom, seq, str, abc, midi, score, source, track];
+const paths = [axiom, seq, str, abc, midi, score, source, track];
+
+
+// create genre directory, then genre/project directory - root for all others
+fs.mkdir(root, (error) => {
+  if (error) {
+    console.log(`mkdir(${root}) error:${error.message}`);
+  } else {
+    console.log(`New Directory ${root} created!`);
+  }
+});
+fs.mkdir(stem, (error) => {
+  if (error) {
+    console.log(`mkdir(${stem}) error:${error.message}`);
+  } else {
+    console.log(`New Directory ${stem} created!`);
+  }
+});
 
 // create directories 
 for(let p in paths){
@@ -33,7 +50,7 @@ for(let p in paths){
       // then create it
       fs.mkdir(paths[p], (error) => {
         if (error) {
-          console.log(`Directory ${paths[p]} already exists!`);
+          console.log(`Directory ${paths[p]} already exists!:${error.message}`);
         } else {
           console.log(`New Directory ${paths[p]} created!`);
         }
