@@ -1,4 +1,5 @@
 // aut2nlines.js 
+// usage: npm run aut2seq autpath melodylength startState endStates');
 // read finite automaton definition file (.aut) and
 // command line arguments for autfile-path, melody-length, no-of-selections,
 // startState and endStates. Select a subset of finite automation
@@ -9,13 +10,19 @@
 // aut2seq
 // The second is to extract a subset of the melodies produced by the fa.
 
+// NOTE: process.cwd() returns the directory from which the npm cmd was made
+// NOTE: __dirname = url.fileURLToPath(new URL('.', import.meta.url)) is the
+// directory containing the npm nodejs-executable file
+// NOTE: __filename = url.fileURLToPath(import.meta.url) is the path to the
+// npm nodejs-executable file itself
+
 
 import {exec} from 'node:child_process';
 
 
 
 if(process.argc < 5){
-  console.log('usage: node aut2seq autpath melodylength startState endStates');
+  console.log('usage: npm run aut2seq autpath melodylength startState endStates');
 }
 
 const autpath = process.argv[2],

@@ -1,4 +1,20 @@
-//createtree.js
+// createphtree.js
+// usage: npm run createtree <genre> <project>');
+// creates complete phenome directory tree @/<genre>/<project>/track
+//                                                            /axiom
+//                                                            /seq
+//                                                            /str
+//                                                            /abc
+//                                                            /midi
+//                                                            /score
+//                                                            /source
+
+// NOTE: process.cwd() returns the directory from which the npm cmd was made
+// NOTE: __dirname = url.fileURLToPath(new URL('.', import.meta.url)) is the
+// directory containing the npm nodejs-executable file
+// NOTE: __filename = url.fileURLToPath(import.meta.url) is the path to the
+// npm nodejs-executable file itself
+
 
 import fs from "fs";
   
@@ -6,7 +22,7 @@ import fs from "fs";
 
 // command line args
 if(process.argv.length < 4){
-  console.log('too few args - exiting - usage: node createtree <genre> <name>');
+  console.log('too few args - usage: npm run createtree <genre> <name>');
 }
 const genre = process.argv[2];
 const name = process.argv[3];

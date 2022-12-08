@@ -1,4 +1,19 @@
 // del all files in a directory
+const fs = require("fs");
+const path = require("path");
+
+const directory = "test";
+
+fs.readdir(directory, (err, files) => {
+  if (err) throw err;
+
+  for (const file of files) {
+    fs.unlink(path.join(directory, file), (err) => {
+      if (err) throw err;
+    });
+  }
+});
+
 const fs = require('fs');
   
 var folder = './images/';

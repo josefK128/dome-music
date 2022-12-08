@@ -1,12 +1,21 @@
-//createphenome.js
+// createphtrack.js
+// usage: npm run createphtrack <genre> <project> 
+// creates minimal phenome directory tree @/<genre>/<project>/track
+
+// NOTE: process.cwd() returns the directory from which the npm cmd was made
+// NOTE: __dirname = url.fileURLToPath(new URL('.', import.meta.url)) is the
+// directory containing the npm nodejs-executable file
+// NOTE: __filename = url.fileURLToPath(import.meta.url) is the path to the
+// npm nodejs-executable file itself
+
 
 import fs from "fs";
-  
+
 
 
 // command line args
 if(process.argv.length < 4){
-  console.log('too few args - usage: node createphenome <genre> <project>');
+  console.log('too few args - usage: npm run createphtrack <genre> <project>');
 }
 const genre = process.argv[2];
 const project = process.argv[3];
