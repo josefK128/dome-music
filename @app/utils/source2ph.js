@@ -15,8 +15,10 @@ import {exec} from 'node:child_process';
 
 // command line args
 if(process.argv.length < 4){
-  console.log('too few args - usage: npm run source2ph <genre> <project>');
+  console.log('usage: npm run source2ph <genre> <project>');
+  process.exit(1);
 }
+
 const genre = process.argv[2],
       project = process.argv[3],
       gstem = './@/@genome/source',

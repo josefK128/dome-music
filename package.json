@@ -13,9 +13,9 @@
     "g2ph": "node ./@app/utils/g2ph",
     "source2ph": "node ./@app/utils/source2ph",
     "midi2ph": "node ./@app/utils/midi2ph",
-    "aut2seq" : "node ./@app/melody/aut2seq",
-    "seq2str" : "node ./@app/melody/seq2str",
-    "str2abc" : "node ./@app/melody/str2abc",
+    "aut2seq": "node ./@app/melody/aut2seq",
+    "seq2str": "node ./@app/melody/seq2str",
+    "str2abc": "node ./@app/melody/str2abc",
     "playwav": "node ./@app/audio/playwav",
     "time-pitch": "node ./@app/time-pitch/time-pitch",
     "list": "npm list --depth=0",
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/josefK128/dome-music#readme",
   "dependencies": {
+    "line-reader": "^0.4.0",
     "node-wav-player": "^0.2.0"
   }
 }

@@ -6,7 +6,8 @@ import player from "node-wav-player";
 
 // command line args
 if(process.argv.length < 3){
-  console.log('too few args - exiting - usage: node playwav <filepath>');
+  console.log('usage: node playwav <filepath>');
+  process.exit(1);
 }
 
 //sfpath

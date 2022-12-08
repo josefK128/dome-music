@@ -11,12 +11,11 @@ let bseq = '',
 
 // cmdline args
 if(process.argv.length < 4){
-  console.log('must provide two command line args');
+  console.log('usage: npm run b2int binseqp intfilepath');
   console.log('The first the input binary string-file path,');
-  console.log('The second the output intewger string-file path,');
+  console.log('The second the output integer string-file path,');
   process.exit(1);
 }
-
 
 // filepaths
 const binpath = process.argv[2];

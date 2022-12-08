@@ -19,11 +19,12 @@
 import fs from "fs";
   
 
-
 // command line args
 if(process.argv.length < 4){
-  console.log('too few args - usage: npm run createtree <genre> <name>');
+  console.log('usage: npm run createtree <genre> <name>');
+  process.exit(1);
 }
+
 const genre = process.argv[2];
 const name = process.argv[3];
 const root = './@/' + genre;

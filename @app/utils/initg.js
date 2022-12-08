@@ -23,8 +23,10 @@ import {exec} from 'node:child_process';
 
 // command line args
 if(process.argv.length < 3){
-  console.log('too few args - usage: npm run initg autfilename');
+  console.log('usage: npm run initg autfilename');
+  process.exit(1);
 }
+
 const autfilename = process.argv[2],
       stem = './@/@genome/',
       axiom = stem + 'axiom/',

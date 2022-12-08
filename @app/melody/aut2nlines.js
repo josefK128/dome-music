@@ -21,8 +21,9 @@ import {exec} from 'node:child_process';
 
 
 
-if(process.argc < 5){
+if(process.argv.length < 5){
   console.log('usage: npm run aut2seq autpath melodylength startState endStates');
+  process.exit(1);
 }
 
 const autpath = process.argv[2],

@@ -1,11 +1,7 @@
 // seq2str.js 
-// usage: npm run seq2str seqpath strpath scalepath rhythmpath nrepeats
+// usage: npm run seq2str seqfile strfile scalepath rhythmpath nrepeats
 // read integer sequences representing abstract melodies.
-// command line arguments for seqfile-path, strdir-path, scale-length,
-// scale-path, rhythm-path and nrepeats of melody.
-// creates .str-file containing the supplied data and writes to strdir-path.
-// The .str-file is later used to create an abc-file using str2abc.
-// usage: npm run seq2str seqfilename strfilename scalepath rhythmpath nrepeats');
+// creates .str-file containing the supplied data and writes to @genome/str.
 
 // NOTE: process.cwd() returns the directory from which the npm cmd was made
 // NOTE: __dirname = url.fileURLToPath(new URL('.', import.meta.url)) is the
@@ -19,23 +15,25 @@ import fs from 'fs';
 import lineReader from 'line-reader';
 
 
-console.log(`lineREader is ${lineReader}`);
-if(process.argc < 6){
-  console.log('usage: npm run seq2str seqpath strpath scalepath rhythmpath nrepeats');
+if(process.argv.length < 8){
+  console.log('usage: npm run seq2str seqfile strfile scaletype scalefile rhythmtype rhythmfile nrepeats');
+  process.exit(1);
 }
+console.log(`lineReader is ${lineReader}`);
 
-const seqpath = process.argv[2],
-      strpath = process.argv[3],
-      scalepath = process.argv[4],
-      rhythmpath = process.argv[5],
-      nrepeats = process.argv[6],
-      argc = process.argv.length;
+const seqpath = './@/@genome/' + process.argv[2],
+      strpath = './@/@genome/' + process.argv[3],
+      scaletype = process.argv[4],
+      scalepath = './@scale/' + scaletype + '/' + process.argv[5],
+      rhythmtype = process.argv[6],
+      rhythmpath = './@rhythm/' + rhythmtype + '/' + process.argv[7],
+      nrepeats = process.argv[8];
 
-//console.log(`autpath = ${autpath}`);
-//console.log(`melodylength = ${melodylength}`);
-//console.log(`startState = ${startState}`);
-//console.log(`endStates = ${endStates}`);
-//console.log(`argc = ${argc}`);
+console.log(`seqpath = ${seqpath}`);
+console.log(`strpath = ${strpath}`);
+console.log(`scalepath = ${scalepath}`);
+console.log(`rhythmpath = ${rhythmpath}`);
+console.log(`nrepeats = ${nrepeats}`);
 
 
 // fetch scale and rhythm
