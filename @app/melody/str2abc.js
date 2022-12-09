@@ -14,9 +14,18 @@ import {exec} from 'node:child_process';
 
 
 if(process.argv.length < 8){
-  console.log('usage: npm run str2abc strfile abcfile midi-program key bpm unit-note');
+  console.log('usage: npm run str2abc strfile abcfile midiprogram key bpm unitnote');
   process.exit(1);
 }
+
+
+// cd to @genome to set cwd=@/@genome to use str2abc.exe found there
+// and so stems for strfile and abcfile are './str' and './abc' respectively
+//console.log(`\nbefore process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
+process.chdir('@/@genome');
+//console.log(`after process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
+//console.log('Now node.exec will look for executable str2abc in @/@genome NOT dome-music as before chdir.'); 
+
 
 const strpath = './str/' + process.argv[2],
       abcpath = './abc/' + process.argv[3],
@@ -33,21 +42,15 @@ console.log(`bpm = ${bpm}`);
 console.log(`unitnote = ${unitnote}`);
 
 
-// cd to @genome to set cwd=@/@genome to use str2abc.exe found there
-//console.log(`\nbefore process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
-process.chdir('@/@genome');
-//console.log(`after process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
-//console.log('Now node.exec will look for executable str2abc in @/@genome NOT dome-music as before chdir.'); 
 
-
-// create .abc-file 
+// create .abc-file for each melody-rhythm line in .str-file 
 const action = `str2abc ${strpath} ${midiprogram} ${key} ${bpm} ${unitnote} > ${abcpath}`;
 
 exec(action, (err) => {
   if(err){
     console.log(`\nerror creating .abc-file: ${err.message}`);
   }else{
-    console.log(`\nsuccessfully created ${abcpath}`);
+    console.log(`\nsuccessfully created @/@genome/abc/${process.argv[3]}`);
   }
 });
     
