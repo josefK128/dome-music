@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "live-server": "live-server --port=8081 --no-browser",
+    "C2transpose": "node ./@app/scale/C2transpose",
     "createphtrack": "node ./@app/utils/createphtrack",
     "createphtree": "node ./@app/utils/createphtree",
     "initg": "node ./@app/utils/initg",

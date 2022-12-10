@@ -1,4 +1,4 @@
-// abc2midir.js 
+// abc2midi.js 
 // usage: npm run abc2midi [abcfile midifile]
 // If abcfile and midifile are given, converts .abc-file to midi-file
 // If abcfile and midifile are omitted, converts /abc/*.abc to midi/*.midi

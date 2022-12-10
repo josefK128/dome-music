@@ -15,6 +15,22 @@ import {exec} from 'node:child_process';
 
 if(process.argv.length < 8){
   console.log('usage: npm run str2abc strfile abcfile midiprogram key bpm unitnote');
+  console.log(`\nkey signature notes:`); 
+  console.log(`'b' indicates flat - i.e Eb is E-flat major `); 
+  console.log(`'#' indicates sharp - i.e 'C# is C# major `); 
+  console.log(`'m' indicates minor`);
+  console.log(`Thus Ebm is E-flat minor `); 
+  console.log(`Thus C#m is C# minor `); 
+  console.log('variations are indicated by 2 symbols - K:Am g# is A harmonic minor');
+  console.log('K:Am f# g# is A melodic minor');
+  console.log('modes: append the full name or first 3 letters:')
+  console.log(`Thus C#Aeolian or c#AEO  is C#-Aeolian `); 
+  console.log(`Thus C#Dorian or c#DOR  is C#-Dorlian `); 
+  console.log(`Thus C#Phrygian or c#PHR  is C#-Phrygian `); 
+  console.log(`Thus C#Lydian or c#LYD  is C#-Lydian `); 
+  console.log(`Thus C#Mixolydian or c#MIX  is C#-Mixolydian `); 
+  console.log(`Thus C#Aeolian or c#AEO  is C#-Aeolian `); 
+  console.log(`Thus C#Locrian or c#LOC  is C#-Locrian `); 
   process.exit(1);
 }
 

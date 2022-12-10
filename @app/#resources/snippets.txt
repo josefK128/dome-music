@@ -1,0 +1,170 @@
+// del all files in a directory
+const fs = require("fs");
+const path = require("path");
+
+const directory = "test";
+
+fs.readdir(directory, (err, files) => {
+  if (err) throw err;
+
+  for (const file of files) {
+    fs.unlink(path.join(directory, file), (err) => {
+      if (err) throw err;
+    });
+  }
+});
+
+const fs = require('fs');
+  
+var folder = './images/';
+   
+fs.readdir(folder, (err, files) => {
+  if (err) throw err;
+  
+  for (const file of files) {
+      console.log(file + ' : File Deleted Successfully.');
+      fs.unlinkSync(folder+file);
+  }
+  
+});
+
+
+
+// does file exist?/not exist? - process
+const fs = require('fs');
+  
+const filePath = './uploads/laravel-doesnothave-users.png';
+  
+fs.exists(filePath, function(exists) {
+  if(exists) {
+      console.log('File is exists.');
+  } else {
+      console.log('File not found.');
+  }
+});
+
+
+
+// create dir if it does not exist
+const fs = require('fs');
+     
+var folder = './images';
+  
+if (!fs.existsSync(folder)){
+    fs.mkdirSync(folder);
+  
+    console.log('Folder Created Successfully.');
+}
+
+
+// get all files in a directory
+const folderPath = './uploads/';
+const fs = require('fs');
+   
+/* Example Code 1 */
+fs.readdir(folderPath, (err, files) => {
+  files.forEach(file => {
+    console.log(file);
+  });
+});
+  
+/* Example Code 2 */
+fs.readdirSync(folderPath).forEach(file => {
+  console.log(file);
+});
+
+
+
+
+
+
+// delete a directory
+const fs = require('fs');
+  
+var folder = './images';
+  
+if (fs.existsSync(folder)){
+    fs.rmdirSync(folder, { recursive: true });
+  
+    console.log('Folder Deleted Successfully.');
+}
+
+
+
+// rename file in folder
+const fs = require('fs');
+   
+const filePath = './uploads/laravel-doesnothave-users.png';
+const filePathRename = './uploads/laravel-doesnothave-users-RENAME.png';
+  
+fs.rename(filePath, filePathRename, function(err) {
+    if ( err ) console.log('ERROR: ' + err);
+  
+    console.log('File Rename Successfully.');
+});
+
+
+// copy directories recursively
+const fse = require('fs-extra');
+
+const srcDir = `path/to/file`;
+const destDir = `path/to/destination/directory`;
+                                 
+// To copy a folder or file, select overwrite accordingly
+try {
+  fs.copySync(srcDir, destDir, { overwrite: true|false })
+  console.log('success!')
+} catch (err) {
+  console.error(err)
+}
+OR
+
+// To Move a folder or file, select overwrite accordingly
+try {
+  fs.moveSync(srcDir, destDir, { overwrite: true|false })
+  console.log('success!')
+} catch (err) {
+  console.error(err)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// copy diectories recursively
+const fs = require("fs")
+const path = require("path")
+
+/**
+ * Look ma, it's cp -R.
+ * @param {string} src  The path to the thing to copy.
+ * @param {string} dest The path to the new copy.
+ */
+var copyRecursiveSync = function(src, dest) {
+  var exists = fs.existsSync(src);
+  var stats = exists && fs.statSync(src);
+  var isDirectory = exists && stats.isDirectory();
+  if (isDirectory) {
+    fs.mkdirSync(dest);
+    fs.readdirSync(src).forEach(function(childItemName) {
+      copyRecursiveSync(path.join(src, childItemName),
+                        path.join(dest, childItemName));
+    });
+  } else {
+    fs.copyFileSync(src, dest);
+  }
+};
