@@ -1,4 +1,4 @@
-// createphtrack.js
+// utils/createphtrack.js
 // usage: npm run createphtrack <genre> <project> 
 // creates minimal phenome directory tree @/<genre>/<project>/track
 

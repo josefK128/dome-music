@@ -1,4 +1,4 @@
-// initg.js
+// utils/initg.js
 // usage: npm run initg autfilename
 // (the directories below are assumed to already exist)
 // empties @/@genome/axiom

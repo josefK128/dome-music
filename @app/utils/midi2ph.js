@@ -1,4 +1,4 @@
-// midi2ph.js
+// utils/midi2ph.js
 // usage: npm run midi2ph <genre> <project>
 // copies @/@genome/midi/* to @/<genre>/<project>/midi/*
 

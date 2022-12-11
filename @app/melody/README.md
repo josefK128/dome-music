@@ -1,9 +1,9 @@
-# @app/melody/*.js
+# @app/melody/*.js - genome processing: axiom -> {abc,midi}
 
 ### aut2seq
-    usage: npm run aut2seq autfilename seqfilename melodylength  nselections startState endStates
+    dome-music> npm run aut2seq autfilename seqfilename melodylength  nselections startState endStates
 
-    If executed from @/@genome directory the paths are ./axiom and ./seq resp.
+    process.chdir('@/@genome') => paths are ./axiom and ./seq resp.
     Select a subset of finite automaton generated melodies and record them 
     in a file of state sequences used for melody - seq/<seqfile>.seq.
 
@@ -13,15 +13,20 @@
 
 
 ### seq2str
-    usage: npm run seq2str seqfile strfile scalepath rhythmpath nrepeats
+    dome-music> npm run seq2str seqfile strfile scaletype sclfile rhythmtype rmfile nrepeats
+    NOTE: seqfile is at @/@genome/seq/<seqfile>
+    NOTE: strfile is at @/@genome/str/<strfile>
+    NOTE: sclfile is at ./@scale/<scaletype>/<sclfile>
+    NOTE: rmfile is at ./@scale/<rhythmtype>/<rmfile>
     read integer sequences representing abstract melodies.
     creates .str-file containing the supplied data and writes to @genome/str.
 
 
 ### str2abc
-    usage: npm run str2abc strfile abcfile midiprogram key bpm unitnote
+    dome-music> npm run str2abc strfile abcfile midiprogram key bpm unitnote   
     reads .str-file containg melody, scale and rhythm data, and cmdline
-    aruments, together used to create a .abc-file written to @genome/abc
+    arguments, used to create a .abc-file written to @genome/abc
+    process.chdir('@/@genome') => paths are './str/' and './abc/' resp.
 
     key signature notes:
     key should ALMOST ALWAYS be'none'!!!
@@ -44,5 +49,8 @@
     Thus C#Aeolian or c#AEO  is C#-Aeolian
     Thus C#Locrian or c#LOC  is C#-Locrian
 
-
+### abc2midi
+    dome-music> npm run abc2midi [abcfile midifile]
+    If abcfile and midifile are given, converts .abc-file to midi-file
+    If abcfile and midifile are omitted, converts /abc/*.abc to midi/*.midi
 

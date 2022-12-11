@@ -1,5 +1,9 @@
-// seq2str.js 
-// usage: npm run seq2str seqfile strfile scalepath rhythmpath nrepeats
+// melody/seq2str.js 
+// usage: npm run seq2str seqfile strfile scaletype sclfile rhythmtype rmfile nrepeats
+// NOTE: seqfile is at @/@genome/seq/<seqfile>
+// NOTE: strfile is at @/@genome/str/<strfile>
+// NOTE: sclfile is at ./@scale/<scaletype>/<sclfile>
+// NOTE: rmfile is at ./@scale/<rhythmtype>/<rmfile>
 // read integer sequences representing abstract melodies.
 // creates .str-file containing the supplied data and writes to @genome/str.
 
@@ -20,6 +24,7 @@ if(process.argv.length < 8){
   process.exit(1);
 }
 console.log(`lineReader is ${lineReader}`);
+
 
 const seqpath = './@/@genome/seq/' + process.argv[2],
       strpath = './@/@genome/str/' + process.argv[3],

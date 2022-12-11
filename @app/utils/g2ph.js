@@ -1,4 +1,4 @@
-// g2ph.js
+// utils/g2ph.js
 // usage: npm run g2ph <genre> <project>
 // copies @/@genome/<all dirs> to @/<genre>/<project>/<all dirs> (overwrites!!)
 // and makes a directory in @/<genre>/<project> if it doesn't already exist.

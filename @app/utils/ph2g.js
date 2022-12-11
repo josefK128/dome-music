@@ -1,4 +1,4 @@
-// ph2g.js
+// utils/ph2g.js
 // usage: npm run ph2g <genre> <project>
 // First empties all directories in @/@genome and then copies all files 
 // from directories axiom, seq, str, abc, midi and source (dirs of @genome)

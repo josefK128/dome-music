@@ -1,4 +1,4 @@
-// source2ph.js
+// utils/source2ph.js
 // usage: npm run source2ph <genre> <project>
 // copies @/@genome/source/* to @/<genre>/<project>/source/*
 

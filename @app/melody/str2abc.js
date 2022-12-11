@@ -1,7 +1,8 @@
-// str2abc.js 
+// melody/str2abc.js 
 // usage: npm run str2abc strfile abcfile midiprogram key bpm unitnote
 // reads .str-file containg melody, scale and rhythm data, and cmdline
-// aruments, together used to create a .abc-file written to @genome/abc
+// arguments, used to create a .abc-file written to @genome/abc
+// process.chdir('@/@genome') => paths are './str/' and './abc/' resp.
 
 // NOTE: process.cwd() returns the directory from which the npm cmd was made
 // NOTE: __dirname = url.fileURLToPath(new URL('.', import.meta.url)) is the

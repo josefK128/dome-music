@@ -1,5 +1,5 @@
-// aut2nlines.js 
-// usage: npm run aut2seq autpath melodylength startState endStates');
+// melody/aut2nlines.js 
+// usage: npm run aut2seq autfile melodylength startState endStates');
 // read finite automaton definition file (.aut) and
 // command line arguments for autfile-path, melody-length, no-of-selections,
 // startState and endStates. Select a subset of finite automation
@@ -15,6 +15,9 @@
 // directory containing the npm nodejs-executable file
 // NOTE: __filename = url.fileURLToPath(import.meta.url) is the path to the
 // npm nodejs-executable file itself
+// by changing cwd to '@/@genome' the path to autfile is './axiom/'.
+process.chdir('@/@genome');
+
 
 
 import {exec} from 'node:child_process';
@@ -26,7 +29,7 @@ if(process.argv.length < 5){
   process.exit(1);
 }
 
-const autpath = process.argv[2],
+const autpath = '/axiom/' + process.argv[2],
       melodylength = process.argv[3],
       startState = process.argv[4],
       argc = process.argv.length;

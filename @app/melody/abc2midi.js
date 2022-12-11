@@ -1,4 +1,4 @@
-// abc2midi.js 
+// melody/abc2midi.js 
 // usage: npm run abc2midi [abcfile midifile]
 // If abcfile and midifile are given, converts .abc-file to midi-file
 // If abcfile and midifile are omitted, converts /abc/*.abc to midi/*.midi
@@ -15,12 +15,12 @@ import fs from 'fs';
 
 
 
-// cd to @genome to set cwd=@/@genome to use str2abc.exe found there
-// and so stems for strfile and abcfile are './str' and './abc' respectively
+// cd to @genome to set cwd=@/@genome to use abc2midi.exe found there
+// and so stems for abcfile and midifile are './abc' and './midi' respectively
 //console.log(`\nbefore process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
 process.chdir('@/@genome');
 //console.log(`after process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
-//console.log('Now node.exec will look for executable str2abc in @/@genome NOT dome-music as before chdir.'); 
+//console.log('Now node.exec will look for executable abc2midi in @/@genome NOT dome-music as before chdir.'); 
 
 
 if(process.argv[2]){

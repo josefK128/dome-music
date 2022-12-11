@@ -1,6 +1,7 @@
-// time-pitch-abc.js 
+// time-pitch/time-pitch-abc.js 
 // usage: npm run time-pitch-abc abcfile tpfile double||half a-or n 
-// From <abcfile>.abc creates time-pitch processed <tpfile>.abc
+// Must include the .abc-ext in abcfile and tpfile
+// From <abcfile> creates time-pitch processed <tpfile> (.abc)
 // arguments are one of 'double' - time dilate by 2.0*duration of all notes
 //                      'half' - time dilate by 0.5*duration of all notes
 //                      'double n' tdilate by 2.0 and transpose by n semitones
@@ -20,7 +21,8 @@ import fs from 'fs';
 
 if(process.argv.length < 4){
   console.log('usage: npm run time-pitch-abc abcfile tpfile double||half a-or n');
-  console.log('From <abcfile>.abc creates time-pitch processed <tpfile>.abc');
+  console.log(`Must include the .abc-ext in abcfile and tpfile`);
+  console.log('From <abcfile> creates time-pitch processed <tpfile> (.abc}');
   console.log('args one of:');
   console.log("'double' - time dilate by 2.0*duration of all notes");
   console.log("'half' - time dilate by 0.5*duration of all notes");
@@ -32,14 +34,14 @@ if(process.argv.length < 4){
   
 
 // cd to @genome to set cwd=@/@genome to use str2abc.exe found there
-// and so stems for strfile and abcfile are './str' and './abc' respectively
+// and so stems for abcfile and tpfile are './abc 
 //console.log(`\nbefore process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
 process.chdir('@/@genome');
 //console.log(`after process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
-//console.log('Now node.exec will look for executable str2abc in @/@genome NOT dome-music as before chdir.'); 
+//console.log('Now node.exec will look for executable pitch-time-abc in @/@genome NOT dome-music as before chdir.'); 
 
-const abcpath = './abc/' + process.argv[2] + '.abc',
-      tppath = './abc/' + process.argv[3] + '.abc';
+const abcpath = './abc/' + process.argv[2],
+      tppath = './abc/' + process.argv[3];
 
 let double = false,
     half = false,

@@ -1,5 +1,5 @@
-// createphtree.js
-// usage: npm run createtree <genre> <project>');
+// utils/createphtree.js
+// usage: npm run createtree <genre> <project>
 // creates complete phenome directory tree @/<genre>/<project>/track
 //                                                            /axiom
 //                                                            /seq

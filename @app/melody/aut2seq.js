@@ -1,6 +1,6 @@
-// aut2seq.js 
+// melody/aut2seq.js 
 // usage: npm run aut2seq autfilename seqfilename melodylength  nselections startState endStates
-// If executed from @/@genome directory the paths are ./axiom and ./seq resp.
+// process.chdir('@/@genome') => paths are ./axiom and ./seq resp.
 // Select a subset of finite automation generated melodies and record them 
 // in a sequences file seq/<seqfile>.seq.
 // There are two runs:
@@ -25,10 +25,11 @@ if(process.argv.length < 8){
 }
 
 // set cwd to dome-music/@/@genome - location of autogen2.exe and ssline.exe
-console.log(`before process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
+// by changing cwd to '@/@genome' the path to autfile is './axiom/'.
+//console.log(`before process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
 process.chdir('@/@genome');
-console.log(`after process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
-console.log('Now node.exec will look for executables such as autogen2 and ssline in @/@genome NOT dome-music as before chdir.'); 
+//console.log(`after process.chdir('@/@genome') process.cwd() = ${process.cwd()}`);
+//console.log('Now node.exec will look for executables such as autogen2 and ssline in @/@genome NOT dome-music as before chdir.'); 
 
 
 const __filename = url.fileURLToPath(import.meta.url),

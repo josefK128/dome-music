@@ -1,9 +1,10 @@
-# play wav-file
+# @app/audio/playwav.js - play wav-file
 
 ### Usage - play sf once
-    dome-music> node ./@app/audio/playwav ./@app/time-pitch/track.wav
+    dome-music> npm run playwav wavpath
 
 ### Usage - loop sf 
-    dome-music> node ./@app/audio/playwav ./@app/time-pitch/track.wav loop
-    NOTE: argv[3] (loop) can be any char or word
+    dome-music> npm playwav wavpath loop
+    If 'loop' is omitted the sf will play only once
+    NOTE: argv[2] (loop) can be any char or word - exp: 'l'
 
