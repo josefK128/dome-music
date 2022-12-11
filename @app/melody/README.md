@@ -23,5 +23,26 @@
     reads .str-file containg melody, scale and rhythm data, and cmdline
     aruments, together used to create a .abc-file written to @genome/abc
 
+    key signature notes:
+    key should ALMOST ALWAYS be'none'!!!
+    Then all accidentals are written into the score
+
+    For rare case where no accidentals are desired use key-sig:
+    'b' indicates flat - i.e Eb is E-flat major
+    '#' indicates sharp - i.e 'C# is C# major
+    'm' indicates minor
+    Thus Ebm is E-flat minor
+    Thus C#m is C# minor
+    variations are indicated by 2 symbols - K:Am g# is A harmonic minor
+    K:Am f# g# is A melodic minor
+    modes: append the full name or first 3 letters:
+    Thus C#Aeolian or c#AEO  is C#-Aeolian 
+    Thus C#Dorian or c#DOR  is C#-Dorlian 
+    Thus C#Phrygian or c#PHR  is C#-Phrygian 
+    Thus C#Lydian or c#LYD  is C#-Lydian 
+    Thus C#Mixolydian or c#MIX  is C#-Mixolydian 
+    Thus C#Aeolian or c#AEO  is C#-Aeolian
+    Thus C#Locrian or c#LOC  is C#-Locrian
+
 
 

@@ -16,6 +16,9 @@ import {exec} from 'node:child_process';
 if(process.argv.length < 8){
   console.log('usage: npm run str2abc strfile abcfile midiprogram key bpm unitnote');
   console.log(`\nkey signature notes:`); 
+  console.log(`key should ALMOST ALWAYS be'none'!!`);
+  console.log(`Then all accidentals are written into the score`);
+  console.log(`\nfor rare case where no accidentals are desired use key-sig:`);
   console.log(`'b' indicates flat - i.e Eb is E-flat major `); 
   console.log(`'#' indicates sharp - i.e 'C# is C# major `); 
   console.log(`'m' indicates minor`);

@@ -3,7 +3,7 @@ T: Fibo example 1
 C: Stefan and Richard
 Z: Abrazol Publishing
 M: 4/4
-K: C
+K:none 
 Q: 60
 L: 1/4
 %MIDI program 24

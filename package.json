@@ -19,6 +19,7 @@
     "str2abc": "node ./@app/melody/str2abc",
     "abc2midi": "node ./@app/melody/abc2midi",
     "playwav": "node ./@app/audio/playwav",
+    "time-pitch-abc": "node ./@app/time-pitch/time-pitch-abc",
     "time-pitch": "node ./@app/time-pitch/time-pitch",
     "list": "npm list --depth=0",
     "listg": "npm -g list --depth=0"
