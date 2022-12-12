@@ -17,6 +17,7 @@ import fs from 'fs';
 
 if(process.argv.length < 4){
   console.log(`usage: npm run C2transpose scltype sclname (include .abc-ext)`);
+  console.log(`sclname should drop the opening 'C-' but will be repaired if included`);
   console.log(`\n<scltype>/C-<sclname> -> scltype/*-<sclname>`);
   console.log(`where * is a member of {D,E.F,G,A,B}`); 
   console.log(`Thus c-<sclname> is transposed by 2,4,5,7,9 and 11 semitones.`);
@@ -34,20 +35,32 @@ process.chdir('@scale');
 
 
 const scltype = process.argv[2],
-      sclname = process.argv[3],
       sclpath = `./${scltype}`,
       t = {D:2, E:4, F:5, G:7, A:9, B:11};
+
+let sclname = process.argv[3],
+    sclbase = sclname,
+    a = sclname.split('-');
+
+
+// strip off 'C-' if it is entered as part of sclname
 console.log(`sclpath = ${sclpath}`);
-console.log(`sclname = ${sclname}`);
+console.log(`before possible split-off of opening 'C-' sclname = ${sclname}`);
+console.log(`before possible split-off of opening 'C-' a = ${a}`);
+if(a.length >1){
+  sclbase = a[1];
+}
+console.log(`scale base 'sclbase' to be used in action is ${sclbase}\n`);
 
 
-
+// generate transpose scales
 for (const [k, n] of Object.entries(t)) {
   //console.log(`${k}: ${n}`);
 
   // create .abc-file for each tonic:interval pair in object 't'
-  const action = `abc2abc ${sclpath}/C-${sclname} -t ${n} > ${sclpath}/${k}-${sclname}`;
+  const action = `abc2abc ${sclpath}/C-${sclbase} -t ${n} > ${sclpath}/${k}-${sclbase}`;
   console.log(`action = ${action}`);
+
   exec(action, (err) => {
     if(err){
       console.log(`\nerror creating .midi-file: ${err.message}`);

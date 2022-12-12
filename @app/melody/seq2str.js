@@ -29,7 +29,8 @@ console.log(`lineReader is ${lineReader}`);
 const seqpath = './@/@genome/seq/' + process.argv[2],
       strpath = './@/@genome/str/' + process.argv[3],
       scaletype = process.argv[4],
-      scalepath = './@scale/' + scaletype + '/' + process.argv[5],
+      sclfile = process.argv[5],
+      scalepath = './@scale/' + scaletype + '/' + sclfile,
       rhythmtype = process.argv[6],
       rhythmpath = './@rhythm/' + rhythmtype + '/' + process.argv[7],
       nrepeats = process.argv[8].toString().trim();
@@ -43,32 +44,50 @@ console.log();
 
 
 // fetch scale and rhythm
-const scale = fs.readFileSync(scalepath, 'utf8').trim();
-const rhythm = fs.readFileSync(rhythmpath, 'utf8').trim();
-const scalelist = scale.split(' ');
-const scalelength = scalelist.length.toString();
-console.log(`scale = ${scale}`);
-console.log(`scalelength = ${scalelength}`);
-console.log(`rhythm = ${rhythm}`);
+let scale = '',
+    scalelist = [],
+    scalelength = 0,
+    rhythm = '';
+
+// determine extension-less 'sclstem' of sclfile (exp: C-minor of C-minor.abc)
+let a = sclfile.split('.'),
+    sclstem = a[0];
 
 
-
-// create .str-file for the .seq-file
-//write first 5 lines of .str-file
-fs.writeFileSync(strpath, 'title/descriptiom', 'utf8');
-fs.appendFileSync(strpath, '\nRudolph', 'utf8');
-fs.appendFileSync(strpath, '\nRudolph', 'utf8');
-fs.appendFileSync(strpath, `\n${scalelength}`, 'utf8');
-fs.appendFileSync(strpath, `\n${scale}`, 'utf8');
-
-
-// write melody-state-seq and rhythm integer-interval-seq
-lineReader.eachLine(seqpath, (line, last) => {
-  line = '\n' + line + ' ' + rhythm + ' ' + nrepeats;
-  //console.log(`line = ${line}`);
-  fs.appendFileSync(strpath, line, 'utf8');
+lineReader.eachLine(scalepath, (line, last) => {
+  console.log(`line=${line} last=${last}`);
   if(last){
-    console.log(`\nsuccessfully created ${strpath}`); 
-    process.exit(1);
+    scale = line.trim();
+    rhythm = fs.readFileSync(rhythmpath, 'utf8').trim();
+    scalelist = scale.split(' ');
+    scalelength = scalelist.length.toString();
+    console.log(`lR scalelength = ${scalelength}`);
+    console.log(`lR rhythm = ${rhythm}`);
+    console.log(`lR scale = ${scale}`);
+
+    // create .str-file for the .seq-file
+    //write first 5 lines of .str-file
+    fs.writeFileSync(strpath, `${scaletype}:${sclstem}:${scale.replace(/\s+/g, '')}`, 'utf8');
+    fs.appendFileSync(strpath, `\n${rhythmtype}:${rhythm}`, 'utf8');
+    fs.appendFileSync(strpath, '\nRudolph', 'utf8');
+    fs.appendFileSync(strpath, `\n${scalelength}`, 'utf8');
+    fs.appendFileSync(strpath, `\n${scale}`, 'utf8');
+
+    // write melody-state-seq and rhythm integer-interval-seq
+    lineReader.eachLine(seqpath, (line, last) => {
+      line = '\n' + line + ' ' + rhythm + ' ' + nrepeats;
+      //console.log(`line = ${line}`);
+      fs.appendFileSync(strpath, line, 'utf8');
+      if(last){
+        console.log(`\nsuccessfully created ${strpath}`); 
+        process.exit(1);
+      }
+    });
   }
 });
+
+
+
+
+
+
