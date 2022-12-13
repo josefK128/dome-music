@@ -6,23 +6,29 @@
   "type": "module",
   "scripts": {
     "live-server": "live-server --port=8081 --no-browser",
+    "list": "npm list --depth=0",
+    "listg": "npm -g list --depth=0",
+
     "C2transpose": "node ./@app/scale/C2transpose",
     "createphtrack": "node ./@app/utils/createphtrack",
     "createphtree": "node ./@app/utils/createphtree",
     "initg": "node ./@app/utils/initg",
     "ph2g": "node ./@app/utils/ph2g",
     "g2ph": "node ./@app/utils/g2ph",
+    "set-abcfile-MIDIprogram": "node ./@app/utils/set-abcfile-MIDIprogram",
     "source2ph": "node ./@app/utils/source2ph",
     "midi2ph": "node ./@app/utils/midi2ph",
+
     "aut2seq": "node ./@app/melody/aut2seq",
     "seq2str": "node ./@app/melody/seq2str",
     "str2abc": "node ./@app/melody/str2abc",
+    "str2abc-single": "node ./@app/melody/str2abc-single",
     "abc2midi": "node ./@app/melody/abc2midi",
-    "playwav": "node ./@app/audio/playwav",
+    "abc2midi-single": "node ./@app/melody/abc2midi-single",
     "time-pitch-abc": "node ./@app/time-pitch/time-pitch-abc",
+
     "time-pitch": "node ./@app/time-pitch/time-pitch",
-    "list": "npm list --depth=0",
-    "listg": "npm -g list --depth=0"
+    "playwav": "node ./@app/audio/playwav"
   },
   "repository": {
     "type": "git",
