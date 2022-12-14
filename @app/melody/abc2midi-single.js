@@ -1,7 +1,7 @@
 // melody/abc2midi-single.js 
 // usage: npm run abc2midi-single abcfile midifile 
 // converts the .abc-file abcfile to the .mid-file midifile.
-// corrects %MIDI by %%MIDI - rewrites abcfile with correction
+// Also corrects %MIDI by %%MIDI - rewrites abcfile with correction
 
 // NOTE: process.cwd() returns the directory from which the npm cmd was made
 // NOTE: __dirname = url.fileURLToPath(new URL('.', import.meta.url)) is the

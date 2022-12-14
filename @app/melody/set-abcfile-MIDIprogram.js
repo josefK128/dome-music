@@ -1,4 +1,4 @@
-// utils/set-abcfile-MIDIprogram.js
+// melody/set-abcfile-MIDIprogram.js
 // usage: npm run set-abcfile-MIDIprogram abcfile N
 // sets MIDIprogram number via insertion or replacement of %%MIDI N
 // Also, if necessary, repairs all incorrect %MIDI-lines with %%MIDI-line

@@ -1,6 +1,7 @@
 // melody/abc2midi.js 
 // usage: npm run abc2midi 'all' 
-// If abcfile and midifile are omitted, converts /abc/*.abc to midi/*.midi
+// converts /abc/*.abc to midi/*.midi
+// Also corrects %MIDI by %%MIDI - rewrites abcfile with correction
 
 // NOTE: process.cwd() returns the directory from which the npm cmd was made
 // NOTE: __dirname = url.fileURLToPath(new URL('.', import.meta.url)) is the
