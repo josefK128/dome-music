@@ -4,7 +4,7 @@
 
 ### resources
     Create abc notation instances in @scale or @ctpt with tonic C (middle-c)
-    @app/scale/C@transpose creates {D,E,F,G,A,B}-transpositions (abc notation)
+    @app/scale/C2transpose creates {D,E,F,G,A,B}-transpositions (abc notation)
 
 ### check
     Ensure that @/@genome is no longer active - move vital files to phenome
@@ -19,7 +19,7 @@
     @app/utils/ph2g initializes @/@genome/ with @/<genre>/<project>/*
 
 ### genome
-    Select and copy @axiom/.aut -> @/@genome/axiom
+    Select and copy @axiom/.aut (.str,.mid) -> @/@genome/axiom (str,mid)
     @app/melody/aut2seq: axiom/.aut -> seq/.seq
     @app/melody/seq2str: seq/.seq -> str/.str
     @app/melody/str2abc: str/.str -> abc/{k.abc}
